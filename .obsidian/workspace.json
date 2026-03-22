@@ -4,21 +4,17 @@
     "type": "split",
     "children": [
       {
-        "id": "31e3e210dc4af8d4",
+        "id": "de27322c0e724913",
         "type": "tabs",
         "children": [
           {
-            "id": "b4a4288bc4fc80bd",
+            "id": "809c2a7afcd5b5e0",
             "type": "leaf",
             "state": {
-              "type": "markdown",
-              "state": {
-                "file": "circular_motion.md",
-                "mode": "preview",
-                "source": false
-              },
+              "type": "empty",
+              "state": {},
               "icon": "lucide-file",
-              "title": "circular_motion"
+              "title": "New tab"
             }
           }
         ]
@@ -185,14 +181,22 @@
   },
   "active": "aa8e59226ff08947",
   "lastOpenFiles": [
+    "mechanics/MIT-Coordinate-Systems.pdf",
+    "mechanics/syllabus.md",
+    "mechanics/coordinate-systems.md",
+    "mechanics/Unconfirmed 379365.crdownload",
+    "mechanics",
+    "PSetsSolutions/PSet2.md",
+    "PSets/PSet2.pdf",
     "PSetsSolutions/PSet1.md",
+    "PSets/Unconfirmed 680442.crdownload",
+    "images/pset1_p2.png",
+    "PSetsSolutions/html/PSet1.html",
+    "PSetsSolutions/html/PSet2.html",
+    "PSets/PSet1.pdf",
     "PSetsSolutions",
     "PSets",
-    "PSets/PSet1.pdf",
     "circular_motion.md",
-    "images",
-    "images/circular_motion.png",
-    "clipboard_e8e6f300302d5c9f475a924cb16b22e1f",
-    "Unconfirmed 894148.crdownload"
+    "images/circular_motion.png"
   ]
 }

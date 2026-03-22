@@ -1,5 +1,113 @@
 # Problem Set 1: Kinematics
 
+## Problems:
+
+- [[#Reasoning for Problem 1. Car and Bicycle Rider]]
+- [[#Reasoning for Problem 2. Elevator Trip]]
+- [[#Reasoning for Problem 3. Rocket Launch]]
+- [[#Reasoning for Problem 4. Throw and Catch]]
+- [[#Reasoning for Problem 5. Vertical Collision]]
+
+---
+## Reasoning for Problem 1. Car and Bicycle Rider
+
+Car's acceleration $a_c$ is given by,
+$$a_c = \begin{cases}
+0 & 0 < t < t_1 \\
+-c(t - t_1) & t_1 < t < t_2
+\end{cases}$$
+Acceleration is constant in the interval $t \in (0, t_1)$ therefore its velocity in this interval given by, $v_c(t) = v_0$ and distance travelled by car in this interval is just $x_c(t) = v_0 t$.
+
+After time $t = t_1$, we see that acceleration isn't constant, but we know that change in velocity is acceleration, using this we get,
+
+$$\begin{align*}
+\frac{dv}{dt} &= a_c(t) \\
+\int_{v_0}^{v_c(t)} dv &= \int_{t_1}^{t} - c (t' - t_1) \, dt' \\
+v_c(t) - v_0 &= - \frac{c}{2} (t' - t_1) \bigg{|}_{t_1}^{t} \\
+v_c(t) &= v_0 - \frac{c}{2} (t - t_1)^2.
+\end{align*}$$
+
+For $x_c(t)$, using the same lines of reasoning we see that,
+$$\begin{align*}
+\frac{dx}{dt} &= v_c(t) \\
+\int_{v_0t_1}^{x_c(t)} dx &= \int_{t_1}^{t} \left(v_0 - \frac{c}{2} (t' - t_1)^2 \right) \, dt' \\
+x_c(t) - v_0 t &= \left( v_0 t' - \frac{c}{6} (t' - t_1)^3 \right) \bigg{|}_{t_1}^{t} \\
+x_c(t) - v_0 t_1 &= v_0 t - \frac{c}{6} (t - t_1)^3 - (v_0 t_1 - 0) \\
+x_c(t) &= v_0 t - \frac{c}{6} (t - t_1)^3.
+\end{align*}$$
+
+Thus, for **(a)**:
+$$v_c(t) = \begin{cases}
+v_0 & 0 < t < t_1 \\
+v_0 - \frac{c}{2} (t - t_1)^2 & t_1 < t < t_2
+\end{cases}$$
+
+and
+
+$$x_c(t) = \begin{cases}
+v_0 t & 0 < t < t_1 \\
+v_0 t - \frac{c}{6} (t - t_1)^3 & t_1 < t < t_2
+\end{cases}$$
+
+Now bicycle rider's initial position is $x_{b, 0} = - 17 m$ and is travelling with constant speed $v_b$, so its speed and position after time $t$ are given by,
+$$v_b(t) = v_b, \quad x_b(t) = -17 + v_b t$$
+
+The cyclist reaches the car when the car just comes to rest, so at time $t = t_2$, we have,
+
+$$\begin{align*}
+x_b(t_2) &= x_c(t_2) \\
+-17 + v_b t_2 &= v_0 t_2 - \frac{c}{6} (t_2 - t_1)^3
+\end{align*}$$
+
+Putting $v_0 = 12, t_1 = 1$ and $c = 6$, we get,
+$$\begin{align*}
+-17 + v_b t_2 &= 12t_2 - (t_2 - 1)^3 \\
+v_b &= (12t_2 - (t_2 - 1)^3 + 17) / t_2
+\end{align*}$$
+We know that at $t = t_2$ car comes at rest, so $v_c(t_2) = 0$, gives us,
+$$v_0  - \frac{c}{2} (t_2 - t_1)^2 = 0$$
+after putting values of $v_0, c$ and $t_1$ and then solving $12 - 3(t_2 - 1)^2 = 0$, we get $t_2 = 3$.
+
+**(b)**: Now putting all these in our expression for $v_b = (12t_2 - (t_2 - 1)^3 + 17) / t_2$ to get $v_b = 15m/s$.
+
+---
+## Reasoning for Problem 2. Elevator Trip
+
+Elevator's accelerator is given by,
+$$a(t) = \begin{cases}
+a & \text{for } \, 0 < t < T \\
+0 & \text{for } \, T < t < 5T \\
+-a & \text{for } \, 5T < t < 6T
+\end{cases}$$
+where $a \in \mathbb{R}^{+}$. We know, how to find velocity, $v(t)$, in time interval $(t_1, t_2)$ we're given acceleration in that interval, that is,
+
+$$v(t) - v(t_1) = \int_{t_1}^{t} a(t') \, dt.$$
+Using this for the given time intervals $(0, T), (T, 5T)$ and $(5T, 6T)$, we get velocity function as,
+
+$$v(t) = \begin{cases}
+at & \text{for } \, 0 < t < T \\
+aT & \text{for } \, T < t < 5T \\
+6aT - at & \text{for } \, 5T < t < 6T
+\end{cases}.$$
+
+Using this we can draw the graph of $v(t)$ as shown below.
+
+![[pset1_p2.png]]
+
+We're asked to find $a$ in terms of $h$ and $T$ where $h$ is distance travelled by elevator in time interval $(0, 6T)$ and $T$ is just time. To do this, notice that, $h$ can be written as,
+
+$$\begin{align*}
+h &= \int_{0}^{6T} v(t) \, dt \\
+&= \int_{0}^{T} v(t) \, dt + \int_{T}^{5T} v(t) \, dt + \int_{5T}^{6T} v(t) \, dt \\
+&= \int_{0}^{T} at \, dt + \int_{T}^{5T} aT \, dt + \int_{5T}^{6T} (6aT - at) \, dt \\
+&= \frac{aT^2}{2} + 4aT^2 + \left( 6aTt - \frac{at^2}{2} \right) \bigg{|}_{5T}^{6T} \\
+&= \frac{aT^2}{2} + 4aT^2 + (36aT^2 - 18aT^2) - \left(30aT^2 - \frac{25aT^2}{2} \right) \\
+&= 5aT^2
+\end{align*}$$
+
+Therefore, $a = h / 5 T^2$.
+
+---
 ## Reasoning for Problem 3. Rocket Launch:
 
 We can understand the problem setup better using our two dimensional coordinate system.
@@ -105,3 +213,34 @@ $$\left( \frac{1}{s^3} \right) \cdot (m) = m / s^3.$$
 ---
 ## Reasoning for Problem 5. Vertical Collision
 
+This is again problem of motion in one dimension, here that one dimension is *y-axis*.
+
+Assume that initial velocity of both cans is $v_0$ and they collide at time $T$. Velocity of first can at any time $t$ is given by, $v_1(t) = v_0 - gt$ and for second can, we have to be little cautious because it was at rest for time $t \leq 4s$, so its velocity at any time $t$ is given by,
+
+$$v_2(t) = 
+\begin{cases}
+0 & \text{if} \, 0 \leq t \leq 4 \\
+v_0 (t - 4) - g(t - 4) & \text{if} \, t > 4
+\end{cases}$$
+
+and their positions after time $t$ is given by,
+
+$$y_1(t) = v_0 t - \frac{1}{2} g t^2, \quad y_2(t) = v_0(t - 4) - \frac{1}{2} g (t - 4)^2.$$
+
+At time $t = T$, we have $y_1(t) = y_2(t) = 5$.
+
+Further,
+$$\begin{align*}
+y_1(T) &= y_2(T) \\
+v_0 T - \frac{1}{2} g T^2 &= v_0 (T - 4) - \frac{1}{2} g (T - 4)^2 \\
+v_0 &= g(T - 2)
+\end{align*}$$
+substituting $v_0 = g(T - 2)$ in $y_1(T) = 5$, gives us, $T \approx 4.240 s$.
+
+Now, find $v_0$ using our relation $v_0 = g(T - 2) \approx 21.98 m/s$.
+
+Final answers:
+- **(a) Time of collision:** $4.240s$
+- **(b) Initial Speed:** $21.98 m/s$
+
+---
